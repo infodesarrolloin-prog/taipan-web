@@ -1,0 +1,16 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copia package.json y package-lock.json primero
+COPY package*.json ./
+RUN npm install
+
+# Copia el resto del código
+COPY . .
+
+# Exponer el puerto de Vite
+EXPOSE 3000
+
+# Comando para desarrollo (Vite)
+CMD ["npm", "run", "start"]
