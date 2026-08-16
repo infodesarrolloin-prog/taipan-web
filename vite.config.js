@@ -8,6 +8,7 @@ export default defineConfig(() => ({
   server: {
     port: 3000,
     proxy: {
+<<<<<<< Updated upstream
       // Proxy para API REST
       '/api': {
         target: 'http://152.53.209.47:8082',
@@ -24,6 +25,11 @@ export default defineConfig(() => ({
         rewrite: (path) => path.replace(/^\/api\/socket/, '/api/socket')
       }
     }
+=======
+      '/api/socket': 'ws://backend:8082',
+      '/api': 'http://backend:8082',
+    },
+>>>>>>> Stashed changes
   },
 
   build: {
